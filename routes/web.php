@@ -10,7 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
+//Controlador restfull
+Route::resource('movie','MovieController');
+
+Route::get('/','FrontController@index');
+Route::get('contact','FrontController@contact');
+Route::get('review','FrontController@review');
