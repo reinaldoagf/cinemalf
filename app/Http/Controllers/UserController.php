@@ -15,6 +15,8 @@ class UserController extends Controller
     public function index()
     {
         //
+        $users=User::All();
+        return view('user.index',compact('users'));
     }
 
     /**
@@ -42,8 +44,7 @@ class UserController extends Controller
                 $user=new User($request->all());
                 $user->password=bcrypt($request['password']);
                 $user->save();
-                //return redirect()->route('user.index')->with('message','store'); 
-                return "Usuario registrado";
+                return redirect()->route('user.index')->with('message','store');
             }
             return "Las contraseñas no coinciden";
         }catch(Exeption $e){
