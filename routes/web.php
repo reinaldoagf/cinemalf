@@ -20,3 +20,4 @@ Route::resource('movie','MovieController');
 Route::get('/','FrontController@index');
 Route::get('contact','FrontController@contact');
 Route::get('review','FrontController@review');
+Route::get('admin','FrontController@admin');
