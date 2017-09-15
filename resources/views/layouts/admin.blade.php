@@ -7,11 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    {{Html::Style('css/bootstrap.min.css')}}
+    {{Html::Style('css/metisMenu.min.css')}}
+    {{Html::Style('css/sb-admin-2.css')}}
+    {{Html::Style('css/font-awesome.min.css')}}
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/metisMenu.min.css" rel="stylesheet">
     <link href="css/sb-admin-2.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
 
 </head>
 
@@ -99,12 +102,14 @@
 
     </div>
     
-
-    
-    <script src="js/jquery.min.js"></script>
+    {{Html::script('js/jquery.min.js')}}
+    {{Html::script('js/bootstrap.min.js')}}
+    {{Html::script('js/metisMenu.min.js')}}
+    {{Html::script('js/sb-admin-2.js')}}
+    <!--<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/metisMenu.min.js"></script>
-    <script src="js/sb-admin-2.js"></script>
+    <script src="js/sb-admin-2.js"></script>-->
 
 </body>
 

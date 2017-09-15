@@ -21,3 +21,5 @@ Route::get('/','FrontController@index');
 Route::get('contact','FrontController@contact');
 Route::get('review','FrontController@review');
 Route::get('admin','FrontController@admin');
+
+Route::resource('user','UserController');

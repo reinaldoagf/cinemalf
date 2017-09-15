@@ -3,8 +3,9 @@
 namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cinema\User;
 
-class MovieController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,6 @@ class MovieController extends Controller
     public function index()
     {
         //
-        return "Estoy en MovieController@index";
     }
 
     /**
@@ -25,6 +25,7 @@ class MovieController extends Controller
     public function create()
     {
         //
+        return view('user.create');
     }
 
     /**
@@ -35,7 +36,19 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //        return "Registrado satisfctoriamente";
+        try{            
+            if ($request['password']==$request['repeatPassword']) {
+                $user=new User($request->all());
+                $user->password=bcrypt($request['password']);
+                $user->save();
+                //return redirect()->route('user.index')->with('message','store'); 
+                return "Usuario registrado";
+            }
+            return "Las contraseñas no coinciden";
+        }catch(Exeption $e){
+            return "Faltal error - ".$e->getMessage();
+        }
     }
 
     /**
