@@ -17,6 +17,11 @@
 			{!!Form::label('Repetir Contraseña')!!}
 			{!!Form::password('repeatPassword',['placeholder'=>'Repetir Contraseña','class'=>'form-control'])!!}
 		</div>
+		<div class="form-group">
+			{!!Form::label('Tipo de usuario')!!}
+			{!!Form::select('typeofuser', ['A' => 'Usuario Administrador', 'S' => 'Usuario del Sistema'],null,['placeholder'=>'Seleccione el tipo de usuario','class'=>'form-control btn-default'])!!}
+			<!--{!!Form::password('repeatPassword',['placeholder'=>'Repetir Contraseña','class'=>'form-control'])!!}-->
+		</div>
 		{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 	{!!Form::close()!!}
 	<!--
