@@ -12,6 +12,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $path='user';
     public function index()
     {
         //
@@ -72,6 +73,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::findOrFail($id);
+        return view($this->path.'.edit', compact('user'));
     }
 
     /**
@@ -84,6 +87,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try{            
+            $user= User::findOrFail($id); 
+            $user->update($request->all());
+            return redirect()->route($this->path.'.index')->with('message','update');
+        }catch(Exeption $e){
+            return "Faltal error - ".$e->getMessage();
+        }
     }
 
     /**
@@ -95,5 +105,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        try{            
+            $user= User::findOrFail($id);
+            $user->delete();
+            return redirect()->route($this->path.'.index')->with('message','destroy');
+        }catch(Exeption $e){
+            return "Faltal error - ".$e->getMessage();
+        }
     }
 }
