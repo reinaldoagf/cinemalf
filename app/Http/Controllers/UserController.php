@@ -20,6 +20,9 @@ class UserController extends Controller
     {
         //
         //$users=User::All();
+        //Para mostrar los registros que han sido eliminados 'deleted_at'
+        // $users=User::onlyTrashed()->paginate(6);
+        
         $users=User::paginate(6);
         return view('user.index',compact('users'));
     }
@@ -109,9 +112,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        try{            
+        try{      
+            // User::destroy($id);
+
             $user= User::findOrFail($id);
             $user->delete();
+
             return redirect()->route($this->path.'.index')->with('message','destroy');
         }catch(Exeption $e){
             return "Faltal error - ".$e->getMessage();
