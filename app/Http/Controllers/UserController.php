@@ -3,6 +3,9 @@
 namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Cinema\Http\Requests\UserCreateRequest;
+use Cinema\Http\Requests\UserUpdateRequest;
 use Cinema\User;
 
 class UserController extends Controller
@@ -16,7 +19,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users=User::All();
+        //$users=User::All();
+        $users=User::paginate(6);
         return view('user.index',compact('users'));
     }
 
@@ -37,7 +41,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         //        return "Registrado satisfctoriamente";
         try{            
@@ -84,7 +88,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         //
         try{            

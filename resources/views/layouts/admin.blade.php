@@ -59,10 +59,12 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <!-- {!!link_to_route('user.create', $title = 'Agregar',$attributes = ['class'=>'fa fa-plus fa-fw'])!!} -->
+                                    <a href="/user/create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                    <!-- {!!link_to_route('user.index', $title = 'Usuarios', $attributes = ['class'=>'fa fa-plus fa-fw'])!!} -->
+                                    <a href="/user"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
                                 </li>
                             </ul>
                         </li>

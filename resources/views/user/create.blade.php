@@ -3,6 +3,7 @@
 	<section>
 	    	<div class="">
 	    		<h1>Registrar usuario</h1>
+	    		@include('user.alerts.request')
 				{!!Form::open(['class'=>'form','method'=>'post','route'=>'user.store'])!!}
 					@include('user.forms.user')
 					{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
