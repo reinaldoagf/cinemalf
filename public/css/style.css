@@ -322,9 +322,6 @@ i.contact1 {
 	padding:4px 0 4px 20px;
 	margin:8px 0 0px 20px;
 }
-.search{
-	float:right;
-}
 /*--start-search--*/
 .search {
 	position: relative;
@@ -341,17 +338,10 @@ i.contact1 {
 	border: none;
 	width: 84.33%;
 }
-.search input[type="submit"] {
-	background: url('../images/sprit-1.png') no-repeat 0px 0px;
-	border: none;
-	cursor: pointer;
-	position: absolute;
-	outline: none;
-	top: 2px;
-	right: 7px;
-	width: 35px;
-	height: 35px;
+.search{
+	float:right;
 }
+
 #flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
 	display: none;
 }
@@ -384,6 +374,25 @@ i.contact1 {
 	position: relative;
 	  width: 90%;
   margin: 0 5%;
+}
+.password{
+	display: inline-block;
+}
+.email{
+	display: inline-block;
+}
+/*--start-login--*/
+.formLogin{
+	position: relative;
+	padding: 8px 10px;
+	float: right;
+}
+.formLogin input[type="text"] {
+	outline: none;
+	color: #b3b3b3;
+	background: none;
+	font-size: 16px;
+	border: none;
 }
 /*** Navigation ***/
 .nbs-flexisel-nav-left {

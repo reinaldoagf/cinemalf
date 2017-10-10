@@ -6,6 +6,19 @@
 						<a href="index.html"><img src="images/logo.png" alt="" /></a>
 						<p>Movie Theater</p>
 					</div>
+					<div class="formLogin">
+						<form>
+							
+							<input type="text" class="email" placeholder="Correo Electronico" />
+							<input type="text" class="password"  placeholder="Contraseña"/>		
+							<input type="submit" name="login" value="Iniciar sesión" class='btn btn-primary'>				
+      						<!-- <input type="text" name="pass2" tabindex="2" style="display: inline;" value="Contraseña" onfocus="this.style.display = 'none'; document.formLogin.pass.style.display = 'inline'; document.formLogin.pass.focus();" /> -->
+						</form>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- <div class="top-header">
+					
 					<div class="search">
 						<form>
 							<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
@@ -13,7 +26,7 @@
 						</form>
 					</div>
 					<div class="clearfix"></div>
-				</div>
+				</div> -->
 				<div class="header-info">
 					<h1>BIG HERO 6</h1>
 					<p class="age"><a href="#">All Age</a> Don Hall, Chris Williams</p>

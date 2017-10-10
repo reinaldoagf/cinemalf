@@ -54,7 +54,7 @@ class UserController extends Controller
                 $user->save();
                 return redirect()->route('user.index')->with('message','store');
             }
-            return "Las contraseñas no coinciden";
+            return redirect()->route('user.create')->with('message','password');
         }catch(Exeption $e){
             return "Faltal error - ".$e->getMessage();
         }
@@ -113,7 +113,7 @@ class UserController extends Controller
     {
         //
         try{      
-            // User::destroy($id);
+             //User::destroy($id);
 
             $user= User::findOrFail($id);
             $user->delete();
