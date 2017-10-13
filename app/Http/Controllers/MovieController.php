@@ -3,7 +3,7 @@
 namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Cinema\Movie;
 class MovieController extends Controller
 {
     /**
@@ -11,10 +11,12 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $path='movie';
     public function index()
     {
         //
-        return "Estoy en MovieController@index";
+        $movies=Movie::paginate(6);
+        return view($this->path.'.index',compact('movies'));
     }
 
     /**
@@ -25,6 +27,7 @@ class MovieController extends Controller
     public function create()
     {
         //
+        return view('movie.create');
     }
 
     /**
@@ -36,6 +39,14 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         //
+        try{              
+                $movie=new Movie($request->all());
+                $movie->save();
+                return redirect()->route($this->path.'.index')->with('message','store');
+            return redirect()->route('movie.create')->with('message','password');
+        }catch(Exeption $e){
+            return "Faltal error - ".$e->getMessage();
+        }
     }
 
     /**
@@ -58,6 +69,8 @@ class MovieController extends Controller
     public function edit($id)
     {
         //
+         $movie = Movie::findOrFail($id);
+        return view($this->path.'.edit', compact('movie'));
     }
 
     /**
@@ -70,6 +83,13 @@ class MovieController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try{            
+            $movie= Movie::findOrFail($id); 
+            $movie->update($request->all());
+            return redirect()->route('movie.index')->with('message','update');
+        }catch(Exeption $e){
+            return "Faltal error - ".$e->getMessage();
+        }
     }
 
     /**
@@ -81,5 +101,16 @@ class MovieController extends Controller
     public function destroy($id)
     {
         //
+        //
+        try{      
+             //User::destroy($id);
+
+            $movie= Movie::findOrFail($id);
+            $movie->delete();
+
+            return redirect()->route('movie.index')->with('message','destroy');
+        }catch(Exeption $e){
+            return "Faltal error - ".$e->getMessage();
+        }
     }
 }

@@ -123,4 +123,11 @@ class UserController extends Controller
             return "Faltal error - ".$e->getMessage();
         }
     }
+    public function getUserJson($name){
+
+        $user= User::where('name', '=', $name)->firstOrFail();
+        $user=array("email" => $user->email, "typeofuser" => $user->typeofuser);
+        return json_encode($user);
+        //return Response::json($user);
+    }
 }

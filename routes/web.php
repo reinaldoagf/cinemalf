@@ -23,3 +23,6 @@ Route::get('review','FrontController@review');
 Route::get('admin','FrontController@admin');
 
 Route::resource('user','UserController');
+Route::resource('movie','MovieController');
+//Api
+Route::get('userjson/{name}','UserController@getUserJson');
