@@ -3,20 +3,20 @@
 namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Cinema\Movie;
-class MovieController extends Controller
+use Cinema\Gender;
+class GenderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    private $path='movie';
+    private $path='gender';
     public function index()
     {
         //
-        $movies=Movie::paginate(6);
-        return view($this->path.'.index',compact('movies'));
+        $genders=Gender::paginate(6);
+        return view($this->path.'.index',compact('genders'));
     }
 
     /**
@@ -27,7 +27,8 @@ class MovieController extends Controller
     public function create()
     {
         //
-        return view('movie.create');
+        return view('gender.create');
+
     }
 
     /**
@@ -40,10 +41,10 @@ class MovieController extends Controller
     {
         //
         try{              
-                $movie=new Movie($request->all());
-                $movie->save();
+                $gender=new Gender($request->all());
+                $gender->save();
                 return redirect()->route($this->path.'.index')->with('message','store');
-            return redirect()->route('movie.create')->with('message','password');
+            return redirect()->route('gender.create')->with('message','password');
         }catch(Exeption $e){
             return "Faltal error - ".$e->getMessage();
         }
@@ -69,8 +70,8 @@ class MovieController extends Controller
     public function edit($id)
     {
         //
-         $movie = Movie::findOrFail($id);
-        return view($this->path.'.edit', compact('movie'));
+        $gender = Gender::findOrFail($id);
+        return view($this->path.'.edit', compact('gender'));
     }
 
     /**
@@ -84,9 +85,9 @@ class MovieController extends Controller
     {
         //
         try{            
-            $movie= Movie::findOrFail($id); 
-            $movie->update($request->all());
-            return redirect()->route('movie.index')->with('message','update');
+            $gender= Gender::findOrFail($id); 
+            $gender->update($request->all());
+            return redirect()->route('gender.index')->with('message','update');
         }catch(Exeption $e){
             return "Faltal error - ".$e->getMessage();
         }
@@ -100,37 +101,16 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
-        //
         try{      
              //User::destroy($id);
 
-            $movie= Movie::findOrFail($id);
-            $movie->delete();
+            $gender= Gender::findOrFail($id);
+            $gender->delete();
 
-            return redirect()->route('movie.index')->with('message','destroy');
+            return redirect()->route('gender.index')->with('message','destroy');
         }catch(Exeption $e){
             return "Faltal error - ".$e->getMessage();
         }
-    }
-    public function getMovieJson($name){
-
-        $movie= Movie::where('name', '=', $name)->firstOrFail();
-        $movie=array("cast" => $movie->cast, "direction" => $movie->direction, "duration" => $movie->duration);
-        return json_encode($movie);
-        //return Response::json($user);
-    }
-    public function getMoviesJson(){
-
-        $movies=Movie::All();
-        if(count($movies) == 0){
-            $response = array('resultado' => 'vacio', 'data' => $movies);
-        } else {
-            $response = array('resultado' => 'ok', 'data' => $movies);
-        }
-        // $user=array("email" => $user->email, "typeofuser" => $user->typeofuser);
-        
-        return json_encode($response);
-        //return Response::json($user);
+        //
     }
 }

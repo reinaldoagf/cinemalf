@@ -130,4 +130,17 @@ class UserController extends Controller
         return json_encode($user);
         //return Response::json($user);
     }
+    public function getUsersJson(){
+
+        $users=User::All();
+        if(count($users) == 0){
+            $response = array('resultado' => 'vacio', 'data' => $users);
+        } else {
+            $response = array('resultado' => 'ok', 'data' => $users);
+        }
+        // $user=array("email" => $user->email, "typeofuser" => $user->typeofuser);
+        
+        return json_encode($response);
+        //return Response::json($user);
+    }
 }

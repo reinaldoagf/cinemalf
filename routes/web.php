@@ -24,5 +24,9 @@ Route::get('admin','FrontController@admin');
 
 Route::resource('user','UserController');
 Route::resource('movie','MovieController');
+Route::resource('gender','GenderController');
 //Api
 Route::get('userjson/{name}','UserController@getUserJson');
+Route::get('usersjson/','UserController@getUsersJson');
+Route::get('moviejson/{name}','MovieController@getMovieJson');
+Route::get('moviesjson/','MovieController@getMoviesJson');
