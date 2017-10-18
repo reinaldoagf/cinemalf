@@ -3,7 +3,7 @@
 	<section>
 	    	<div class="">
 	    		<h1>Registrar pelicula</h1>
-	    		@include('movie.alerts.request')
+	    		@include('alerts.request')
 	    		@include('movie.alerts.alerts')
 				{!!Form::open(['class'=>'form','method'=>'post','route'=>'movie.store'])!!}
 					@include('movie.forms.movie')

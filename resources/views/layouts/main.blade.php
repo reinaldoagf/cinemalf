@@ -27,9 +27,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="full">
 			<div class="menu">
 				<ul>
-					<li><a class="active" href="index.html"><i class="home"></i></a></li>
-					<li><a href="reviews.html"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
-					<li><a href="contact.html"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
+					<!-- <li>{!!link_to_route('user.index', $title = 'Inicio',$attributes = ['class'=>'fa fa-plus fa-fw'])!!}</li>
+					<li>{!!link_to_route('user.create', $title = ' Usuario',$attributes = ['class'=>' fa fa-plus fa-fw'])!!}</li>
+					<li>{!!link_to_route('movie.create', $title = 'Pelicula',$attributes = ['class'=>' fa fa-plus fa-fw'])!!}</li> -->
+					<li><a class="active" href="/"><i class="home"></i></a></li>
+					<li><a href="/user"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
+					<li><a href="/movie"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
 				</ul>
 			</div>
 		<div class="main">

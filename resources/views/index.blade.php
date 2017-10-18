@@ -1,19 +1,25 @@
 @extends('layouts.main')
 @section('content')
+	@include('alerts.errors')
+	@include('alerts.request')
 	<div class="header">
 				<div class="top-header">
 					<div class="logo">
-						<a href="index.html"><img src="images/logo.png" alt="" /></a>
+						<a href="user"><img src="images/logo.png" alt="" /></a>
 						<p>Movie Theater</p>
 					</div>
 					<div class="formLogin">
-						<form>
-							
+					{!!Form::open(['class'=>'form','method'=>'post','route'=>'login.store'])!!}
+							{!!Form::email('email',null,['class'=>'email','placeholder'=>'Correo electronico'])!!}
+							{!!Form::password('password',['class'=>'password ','placeholder'=>'Contraseña'])!!}
+						
+						{!!Form::submit('Iniciar sesión',['class'=>'btn btn-primary'])!!}
+					{!!Form::close()!!}
+						<!-- <form>
 							<input type="text" class="email" placeholder="Correo Electronico" />
 							<input type="text" class="password"  placeholder="Contraseña"/>		
-							<input type="submit" name="login" value="Iniciar sesión" class='btn btn-primary'>				
-      						<!-- <input type="text" name="pass2" tabindex="2" style="display: inline;" value="Contraseña" onfocus="this.style.display = 'none'; document.formLogin.pass.style.display = 'inline'; document.formLogin.pass.focus();" /> -->
-						</form>
+							<input type="submit" name="login" value="Iniciar sesión" class='btn btn-primary'>	
+						</form> -->
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -29,7 +35,7 @@
 				</div> -->
 				<div class="header-info">
 					<h1>BIG HERO 6</h1>
-					<p class="age"><a href="#">All Age</a> Don Hall, Chris Williams</p>
+					<p class="age"><a href="/user">All Age</a> Don Hall, Chris Williams</p>
 					<p class="review">Rating	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;  8,5/10</p>
 					<p class="review reviewgo">Genre	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp; Animation, Action, Comedy</p>
 					<p class="review">Release &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; 7 November 2014</p>

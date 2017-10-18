@@ -113,4 +113,24 @@ class GenderController extends Controller
         }
         //
     }
+    public function getGenderJson($name){
+
+        $gender= Gender::where('name', '=', $name)->firstOrFail();
+        $gender=array("cast" => $gender->cast, "direction" => $gender->direction, "duration" => $gender->duration);
+        return json_encode($gender);
+        //return Response::json($user);
+    }
+    public function getGendersJson(){
+
+        $genders=Gender::All();
+        if(count($genders) == 0){
+            $response = array('resultado' => 'vacio', 'data' => $genders);
+        } else {
+            $response = array('resultado' => 'ok', 'data' => $genders);
+        }
+        // $user=array("email" => $user->email, "typeofuser" => $user->typeofuser);
+        
+        return json_encode($response);
+        //return Response::json($user);
+    }
 }

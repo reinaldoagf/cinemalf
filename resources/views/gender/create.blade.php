@@ -3,7 +3,7 @@
 	<section>
 	    	<div class="">
 	    		<h1>Registrar genero</h1>
-	    		@include('gender.alerts.request')
+	    		@include('alerts.request')
 	    		@include('gender.alerts.alerts')
 				{!!Form::open(['class'=>'form','method'=>'post','route'=>'gender.store'])!!}
 					@include('gender.forms.gender')
