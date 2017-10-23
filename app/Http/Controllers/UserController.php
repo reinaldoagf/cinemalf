@@ -50,7 +50,7 @@ class UserController extends Controller
         try{            
             if ($request['password']==$request['repeatPassword']) {
                 $user=new User($request->all());
-                $user->password=bcrypt($request['password']);
+                //$user->password=bcrypt($request['password']);
                 $user->save();
                 return redirect()->route('user.index')->with('message','store');
             }

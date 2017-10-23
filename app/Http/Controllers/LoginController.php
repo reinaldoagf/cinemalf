@@ -37,11 +37,16 @@ class LoginController extends Controller
     public function store(LoginRequest $request)
     {
         //
-        if (Auth::attempt(['email'=>$request['email'],'password'=>$request['password']])) {
-            return Redirect::to('user');
+         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
+            // Authentication passed...
+            return  Redirect::to('/user');
         }
         Session::flash('message-error','Los datos ingresados son incorrectos');
         return Redirect::to('/');
+        // if (Auth::attempt(['email'=>$request['email'],'password'=>$request['password']])) {
+        //     return Redirect::to('user');
+        // }
+        
     }
 
     /**
