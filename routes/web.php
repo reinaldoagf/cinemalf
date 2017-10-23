@@ -21,10 +21,13 @@ Route::get('/','FrontController@index');
 Route::get('contact','FrontController@contact');
 Route::get('review','FrontController@review');
 Route::get('admin','FrontController@admin');
-
+//Aplicando middleware para verificr si el usuario esta autentificado
+Route::group(["middleware"=>"manualauth"],function(){
 Route::resource('user','UserController');
 Route::resource('movie','MovieController');
 Route::resource('gender','GenderController');
+});
+
 
 Route::resource('login','LoginController');
 Route::get('logout','LoginController@logout');

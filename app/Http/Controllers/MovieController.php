@@ -12,6 +12,9 @@ class MovieController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $path='movie';
+    public function __construct(){
+        $this->middleware('manualauth');
+    }
     public function index()
     {
         //

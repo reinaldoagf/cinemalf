@@ -12,6 +12,9 @@ class GenderController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $path='gender';
+    public function __construct(){
+        $this->middleware('manualauth');
+    }
     public function index()
     {
         //

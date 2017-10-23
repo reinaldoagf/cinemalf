@@ -16,6 +16,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $path='user';
+    public function __construct(){
+        $this->middleware('manualauth');
+    }
     public function index()
     {
         //
