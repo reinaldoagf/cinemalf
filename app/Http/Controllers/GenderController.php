@@ -4,6 +4,7 @@ namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cinema\Gender;
+use Session;
 class GenderController extends Controller
 {
     /**
@@ -43,14 +44,21 @@ class GenderController extends Controller
     public function store(Request $request)
     {
         //
-        try{              
-                $gender=new Gender($request->all());
-                $gender->save();
-                return redirect()->route($this->path.'.index')->with('message','store');
-            return redirect()->route('gender.create')->with('message','password');
-        }catch(Exeption $e){
-            return "Faltal error - ".$e->getMessage();
+        if ($request->ajax()) {
+            # code...
+            Gender::create(request()->all());
+            return response()->json([
+                "mensaje" => $request->all()
+                ]);
         }
+        // try{              
+        //         $gender=new Gender($request->all());
+        //         $gender->save();
+        //         return redirect()->route($this->path.'.index')->with('message','store');
+        //     return redirect()->route('gender.create')->with('message','password');
+        // }catch(Exeption $e){
+        //     return "Faltal error - ".$e->getMessage();
+        // }
     }
 
     /**
