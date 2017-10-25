@@ -13,14 +13,21 @@ class GenderController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $path='gender';
+    // ========APLICANDO MIDDLEWARE manualauth PARA TODAS LAS ACCIONES DEL CONTROLADOR
     public function __construct(){
         $this->middleware('manualauth');
     }
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $genders=Gender::paginate(6);
-        return view($this->path.'.index',compact('genders'));
+        // =================CARGANDO TABLA DE GENEROS REGISTRADOS (AJAX)
+         if ($request->ajax()) {
+            $genders = Gender::all();
+            return response()->json($genders);
+        }
+        return view($this->path.'.index');
+        // =================CARGANDO TABLA DE GENEROS REGISTRADOS (Sin Request $request)
+        // $genders=Gender::paginate(6);
+        // return view($this->path.'.index',compact('genders'));
     }
 
     /**
@@ -43,7 +50,7 @@ class GenderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //==============REGISTANDO GENERO (AJAX)
         if ($request->ajax()) {
             # code...
             Gender::create(request()->all());
@@ -51,6 +58,7 @@ class GenderController extends Controller
                 "mensaje" => $request->all()
                 ]);
         }
+        //==============REGISTANDO GENERO
         // try{              
         //         $gender=new Gender($request->all());
         //         $gender->save();
