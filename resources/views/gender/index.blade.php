@@ -2,6 +2,10 @@
 <?php $message=Session::get('message') ?>
 @section('content')
 	@include('gender.alerts.alerts')
+	@include('gender.modal')
+	<div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+  		<strong> Genero Actualizado Correctamente.</strong>
+	</div>
 	<!-- =================CARGANDO TABLA DE GENEROS REGISTRADOS (AJAX) -->
 	<table class="table">
 		<thead>

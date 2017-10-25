@@ -89,8 +89,12 @@ class GenderController extends Controller
     public function edit($id)
     {
         //
-        $gender = Gender::findOrFail($id);
-        return view($this->path.'.edit', compact('gender'));
+         //==============EDITAR GENERO (AJAX)
+        $gender=Gender::findOrFail($id);
+        return response()->json($gender);
+        //==============EDITAR GENERO
+        // $gender = Gender::findOrFail($id);
+        // return view($this->path.'.edit', compact('gender'));
     }
 
     /**
@@ -103,13 +107,18 @@ class GenderController extends Controller
     public function update(Request $request, $id)
     {
         //
-        try{            
-            $gender= Gender::findOrFail($id); 
-            $gender->update($request->all());
-            return redirect()->route('gender.index')->with('message','update');
-        }catch(Exeption $e){
-            return "Faltal error - ".$e->getMessage();
-        }
+        //==============ACTUALIZANDO GENERO (AJAX)
+        $gender= Gender::findOrFail($id); 
+        $gender->update($request->all());
+        return response()->json(["Mensaje"=>"listo"]);
+        //==============ACTUALIZANDO GENERO
+        // try{            
+        //     $gender= Gender::findOrFail($id); 
+        //     $gender->update($request->all());
+        //     return redirect()->route('gender.index')->with('message','update');
+        // }catch(Exeption $e){
+        //     return "Faltal error - ".$e->getMessage();
+        // }
     }
 
     /**
@@ -134,8 +143,8 @@ class GenderController extends Controller
     }
     public function getGenderJson($name){
 
-        $gender= Gender::where('name', '=', $name)->firstOrFail();
-        $gender=array("cast" => $gender->cast, "direction" => $gender->direction, "duration" => $gender->duration);
+        $gender= Gender::where('genre', '=', $name)->firstOrFail();
+        $gender=array("id" => $gender->id);
         return json_encode($gender);
         //return Response::json($user);
     }
