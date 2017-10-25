@@ -11,4 +11,8 @@
 <div class="alert alert-danger alert-dismissible fade in">
   <a href="{!!URL::to('/user')!!}" class="close" data-dismiss="alert" aria-label="close">&times;</a></span></button>Pelicula <strong>eliminada</strong> satisfactoriamente.
 </div> 
+@elseif ($message=='genders')
+<div class="alert alert-danger alert-dismissible fade in">
+  <a href="{!!URL::to('/user')!!}" class="close" data-dismiss="alert" aria-label="close">&times;</a></span></button>Dbe existir al menos un <strong>genero</strong> registrado.
+</div> 
 @endif

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Cinema\Http\Requests\UserCreateRequest;
 use Cinema\Http\Requests\UserUpdateRequest;
 use Cinema\User;
-
 class UserController extends Controller
 {
     /**
@@ -38,6 +37,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        
         return view('user.create');
     }
 

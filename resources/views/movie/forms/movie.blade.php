@@ -13,7 +13,12 @@
 		<div class="form-group">
 			{!!Form::label('Duracion')!!}
 			{!!Form::text('duration',null,['placeholder'=>'Duracion','class'=>'form-control'])!!}
-		</div><div class="form-group">
+		</div>
+		<!-- <div class="form-group">
 			{!!Form::label('Genero')!!}
 			{!!Form::text('genre_id',1,['placeholder'=>'Genero','class'=>'form-control'])!!}
+		</div> -->
+		<div class="form-group">
+			{!!Form::label('Genero')!!}
+			{!!Form::select('genre_id', $genders,null,['placeholder'=>'Seleccione el genero de la pelicula','class'=>'form-control btn-default'])!!}
 		</div>

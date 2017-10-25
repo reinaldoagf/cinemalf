@@ -4,6 +4,7 @@ namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cinema\Movie;
+use Cinema\Gender;
 class MovieController extends Controller
 {
     /**
@@ -30,7 +31,12 @@ class MovieController extends Controller
     public function create()
     {
         //
-        return view('movie.create');
+        $genders= Gender::pluck('genre');
+        if ($genders!=null) {
+            
+            return view('movie.create',compact("genders"));
+        }
+         return redirect()->route('movie.create')->with('message','genders');
     }
 
     /**
@@ -46,7 +52,7 @@ class MovieController extends Controller
                 $movie=new Movie($request->all());
                 $movie->save();
                 return redirect()->route($this->path.'.index')->with('message','store');
-            return redirect()->route('movie.create')->with('message','password');
+           
         }catch(Exeption $e){
             return "Faltal error - ".$e->getMessage();
         }
