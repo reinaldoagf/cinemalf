@@ -8,6 +8,7 @@
 			<th>Casting</th>
 			<th>Dirección</th>
 			<th>Duración</th>
+			<th>Genero</th>
 			<th>Opciones</th>		
 		</thead>
 		@foreach($movies as $movie)
@@ -16,6 +17,7 @@
 			<td>{{$movie->cast}}</td>
 			<td>{{$movie->direction}}</td>
 			<td>{{$movie->duration}}</td>
+			<td>{{$movie->genre_id}}</td>
 			<td>
 				{!!link_to_route('movie.edit', $title = 'Editar', $parameters = [$movie->id], $attributes = ['class'=>'btn btn-primary'])!!}
            		<form style="display:inline;" action="{{route('movie.destroy',$movie->id)}}" method="post">

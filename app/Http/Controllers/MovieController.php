@@ -5,6 +5,8 @@ namespace Cinema\Http\Controllers;
 use Illuminate\Http\Request;
 use Cinema\Movie;
 use Cinema\Gender;
+use Session;
+use Redirect;
 class MovieController extends Controller
 {
     /**
@@ -20,7 +22,12 @@ class MovieController extends Controller
     {
         //
         $movies=Movie::paginate(6);
-        return view($this->path.'.index',compact('movies'));
+        foreach($movies as $movie){
+            $gender=Gender::findOrFail($movie->genre_id);
+            //intercambiando valor de id en peliculas, por el nombre vinculado a este id (no afecta la base de datos, es solo a efectos de la vista)
+            $movie->genre_id=$gender->genre;
+        }
+        return view('movie.index',compact('movies'));
     }
 
     /**
@@ -31,12 +38,15 @@ class MovieController extends Controller
     public function create()
     {
         //
-        $genders= Gender::pluck('genre');
-        if ($genders!=null) {
-            
-            return view('movie.create',compact("genders"));
+        $genders= Gender::pluck('genre','id');
+        // return "json:".$genders;
+        if (sizeof($genders) <> 0) {
+            return view($this->path.'.create',compact("genders"));
         }
-         return redirect()->route('movie.create')->with('message','genders');
+        Session::flash('message-error-genders','Debe existir al menos un genero registrado.');
+        return Redirect::to('/gender/create');
+        // 
+            
     }
 
     /**

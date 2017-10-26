@@ -4,14 +4,15 @@
 	    	<div class="">
 	    		<h1>Registrar genero</h1>
 	    		@include('alerts.request')
+	    		@include('alerts.errors')
+	    		@include('gender.alerts.success')
 	    		@include('gender.alerts.alerts')
+				
 	    		<!-- FORMULARIO PARA REGISTRAR GENERO -->
 				<!-- !!Form::open(['class'=>'form','method'=>'post','route'=>'gender.store'])!! -->
 				<!-- FORMULARIO PARA REGISTRAR GENERO (AJAX)-->
 				{!!Form::open()!!}
-				<div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
-					Genero <strong>registrado</strong>  satisfactoriamente.
-				</div>
+				
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 					@include('gender.forms.gender')
 					<!-- LINK PARA REGISTRAR GENERO (AJAX)-->

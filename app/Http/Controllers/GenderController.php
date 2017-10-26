@@ -4,7 +4,6 @@ namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cinema\Gender;
-use Session;
 class GenderController extends Controller
 {
     /**
