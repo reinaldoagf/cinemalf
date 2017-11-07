@@ -126,15 +126,18 @@ class GenderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Eliminar genero con AJAX
     public function destroy($id)
     {
         try{      
              //User::destroy($id);
-
+            // Eliminar genero
             $gender= Gender::findOrFail($id);
             $gender->delete();
-
-            return redirect()->route('gender.index')->with('message','destroy');
+            return response()->json([
+                "mensaje"=>"listo"]);
+            // Eliminar genero
+            // return redirect()->route('gender.index')->with('message','destroy');
         }catch(Exeption $e){
             return "Faltal error - ".$e->getMessage();
         }
