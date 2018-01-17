@@ -38,7 +38,7 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        {!!Auth::user()->name!!}
+                       {!!Auth::user()->name!!}  
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
@@ -61,11 +61,11 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <!-- {!!link_to_route('user.create', $title = 'Agregar',$attributes = ['class'=>'fa fa-plus fa-fw'])!!} -->
-                                    <a href="/user/create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{{route('user.create')}}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
                                     <!-- {!!link_to_route('user.index', $title = 'Usuarios', $attributes = ['class'=>'fa fa-plus fa-fw'])!!} -->
-                                    <a href="/user/"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                    <a href="{{route('user.index')}}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
                                 </li>
                             </ul>
                         </li>
@@ -73,10 +73,10 @@
                             <a href="#"><i class="fa fa-film fa-fw"></i> Pelicula<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/movie/create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{{route('movie.create')}}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="/movie/"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
+                                    <a href="{{route('movie.index')}}"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
                                 </li>
                             </ul>
                         </li>
@@ -85,10 +85,10 @@
                             <a href="#"><i class="fa fa-child fa-fw"></i> Genero<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/gender/create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{{route('gender.create')}}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="/gender/"><i class='fa fa-list-ol fa-fw'></i> Generos</a>
+                                    <a href="{{route('gender.index')}}"><i class='fa fa-list-ol fa-fw'></i> Generos</a>
                                 </li>
                             </ul>
                         </li>

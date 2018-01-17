@@ -16,5 +16,5 @@
 		</div>
 		<div class="form-group">
 			{!!Form::label('Tipo de usuario')!!}
-			{!!Form::select('typeofuser', ['Admin' => 'Usuario Administrador', 'Sistem' => 'Usuario del Sistema'],null,['placeholder'=>'Seleccione el tipo de usuario','class'=>'form-control btn-default'])!!}
+			{!!Form::select('typeofuser', ['Administrador' => 'Administrador', 'Tradicional' => 'Tradicional'],null,['placeholder'=>'Seleccione el tipo de usuario','class'=>'form-control btn-default'])!!}
 		</div>

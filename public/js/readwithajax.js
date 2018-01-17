@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	load();
+	console.log('Cargado');
 });
 function load(){
 	var table=$("#data");
@@ -20,6 +21,7 @@ function deleteGender(btn){
 		type: 'DELETE',
 		dataType: 'json',
 		success: function(){
+			console.log("eliminado");
 			load();//cargar tabla
 			$("#msj-danger").fadeIn();
 		}

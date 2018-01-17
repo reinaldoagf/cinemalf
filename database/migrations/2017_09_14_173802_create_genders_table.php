@@ -17,6 +17,7 @@ class CreateGendersTable extends Migration
             $table->increments('id');
             $table->string('genre');
             $table->timestamps();
+            // $table->softDeletes();
         });
     }
 

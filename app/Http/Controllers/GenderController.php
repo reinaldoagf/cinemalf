@@ -132,7 +132,7 @@ class GenderController extends Controller
         try{      
              //User::destroy($id);
             // Eliminar genero
-            $gender= Gender::findOrFail($id);
+            $gender= Gender::find($id);
             $gender->delete();
             return response()->json([
                 "mensaje"=>"listo"]);

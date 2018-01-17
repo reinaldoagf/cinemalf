@@ -20,6 +20,15 @@ $factory->define(Cinema\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'typeofuser'=>'Tradicional',
         'remember_token' => str_random(10),
+    ];
+});
+$factory->define(App\Movie::class, function (Faker $faker) {
+    return [
+    	'name' => $faker->name,
+    	'cast' => $faker->name,
+    	'direction' => $faker->name,
+    	'duration' => rand(1, 3),
     ];
 });

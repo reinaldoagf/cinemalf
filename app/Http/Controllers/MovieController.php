@@ -22,12 +22,16 @@ class MovieController extends Controller
     {
         //
         $movies=Movie::paginate(6);
-        foreach($movies as $movie){
-            $gender=Gender::findOrFail($movie->genre_id);
-            //intercambiando valor de id en peliculas, por el nombre vinculado a este id (no afecta la base de datos, es solo a efectos de la vista)
-            $movie->genre_id=$gender->genre;
-        }
-        return view('movie.index',compact('movies'));
+        // $genders=[];
+        // foreach($movies as $movie){
+        //      $gender=Gender::find($movie->genre_id);
+        //      array_push($genders,$gender);
+        //      //intercambiando valor de id en peliculas, por el nombre vinculado a este id (no afecta la base de datos, es solo a efectos de la vista)
+        //      // $movie->genre_id=$gender->genre;
+        // }
+        // $data=array('status' =>'ok' ,'movies'=>$movies);
+        // return $data;
+        return view($this->path.'.index',compact('movies'));
     }
 
     /**
