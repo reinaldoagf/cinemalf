@@ -8,9 +8,15 @@ function load(){
 	$("#data").empty();
 	$.get(route, function(response){
 		$(response).each(function(key,value){
-			table.append("<tr><td>"+value.genre+"</td><td><button value="+value.id+" OnClick='showGender(this);' class='btn btn-primary'  data-toggle= 'modal' data-target='#myModal'﻿>Editar</button> &nbsp; <button class='btn btn-danger' value="+value.id+" OnClick='deleteGender(this);' ﻿>Eliminar</button></td></tr>");
+			table.append("<tr><td>"+value.genre+"</td><td><button value="+value.id+" OnClick='showGender(this);' class='btn btn-primary'  data-toggle= 'modal' data-target='#myModal'﻿>Editar</button> &nbsp; <button class='btn btn-large btn-danger' value="+value.id+" OnClick='confirmAction(this);' ﻿>Eliminar</button></td></tr>");
 		});
 	});
+}
+function confirmAction(btn){
+	var response =confirm("Pueden existir peliculas vinculadas a este genero. ¿Desea eliminar el genero y las peliculas vinculadas?");
+	if (response == true) {
+    	deleteGender(btn);
+	} 
 }
 function deleteGender(btn){
 	var route = "http://cinemalf.dev/gender/"+btn.value;

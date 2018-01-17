@@ -4,6 +4,7 @@ namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cinema\Gender;
+use Cinema\Movie;
 class GenderController extends Controller
 {
     /**
@@ -133,9 +134,14 @@ class GenderController extends Controller
              //User::destroy($id);
             // Eliminar genero
             $gender= Gender::find($id);
+            $movies=Movie::all();
+            foreach($movies as $movie){
+                if ($gender->id==$movie->genre_id) {
+                    $movie->delete();
+                }           
+            }
             $gender->delete();
-            return response()->json([
-                "mensaje"=>"listo"]);
+            return response()->json(["mensaje"=>"listo"]);
             // Eliminar genero
             // return redirect()->route('gender.index')->with('message','destroy');
         }catch(Exeption $e){
