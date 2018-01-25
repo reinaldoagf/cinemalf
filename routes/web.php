@@ -30,7 +30,7 @@ Route::resource('gender','GenderController');
 
 
 Route::resource('login','LoginController');
-Route::get('logout','LoginController@logout');
+Route::get('logout',['as' => 'logout', 'uses' => 'LoginController@logout']);
 //Api
 Route::get('userjson/{name}','UserController@getUserJson');
 Route::get('usersjson/','UserController@getUsersJson');

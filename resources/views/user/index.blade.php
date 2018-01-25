@@ -8,8 +8,9 @@
 			<th>Correo</th>
 			<th>Operaciones</th>	
 		</thead>
-		@foreach($users as $user)
 		<tbody>
+		@foreach($users as $user)
+		<tr>
 			<td>{{$user->name}}</td>
 			<td>{{$user->email}}</td>
 			<td>
@@ -21,8 +22,9 @@
 
            		</form>
            	</td>
-		</tbody>
+		</tr>			
 		@endforeach
+		</tbody>
 	</table>
 	{!!$users->render()!!}
 @endsection
